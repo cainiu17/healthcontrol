@@ -1,0 +1,132 @@
+<!--加载头部-->
+{include file='public/header' /}
+<body class="login-layout">
+<div class="main-container">
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="login-container">
+                    <div class="center">
+                        <div class="space-30"></div>
+                        <div class="space-30"></div>
+                        <h1>
+                            <i class="icon-user-md blue"></i>
+                            <span class="blue">南加健康管理中心</span>
+                        </h1>
+                        <!--<h4 class="blue">&copy; Company Name</h4>-->
+                    </div>
+                    <div class="space-20"></div>
+                    <div class="position-relative" >
+                        <div id="login-box" class="login-box visible widget-box no-border"  style="background-color: #4b89aa;">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h4 class="header blue lighter bigger">
+                                        <i class="icon-stethoscope blue"></i>
+                                        登录
+                                    </h4>
+                                    <div class="space-6"></div>
+                                    <form>
+                                        <fieldset>
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="text" class="form-control"  placeholder="用户名或手机号" name="UserName"
+                                                           id="CName" data-container="body" data-placement="right" data-content=""
+                                                    />
+                                                    <i class="icon-user"></i>
+                                                </span>
+                                            </label>
+                                            <div class="space"></div>
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="password" class="form-control" placeholder="登录密码"  name="LoginPwd"
+                                                           id="CPwd" data-container="body" data-placement="right" data-content=""/>
+                                                    <i class=""></i>
+                                                    <i class="icon-lock"></i>
+                                                </span>
+                                            </label>
+                                            <div class="space"></div>
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="text" class="form-control" placeholder="填写下面验证码" name="Vcode"
+                                                           id="Ccode" data-container="body"  data-placement="right" data-content="">
+                                                    <i class="icon-tag"></i>
+                                                </span>
+                                                <div class="space-6"></div>
+                                                <div><img src="{:captcha_src()}" alt="验证码" id="verify_img" style="width: 55%;"/><a href="javascript:void(0)" onclick="refreshVerify()">
+                                                    看不清？点击刷新</a></div>
+                                            </label>
+                                            <div class="space"></div>
+
+                                            <div class="clearfix">
+                                                <label class="inline">
+                                                    <input type="checkbox" class="ace" name="RememberMe" id="Remmber"/>
+                                                    <span class="lbl"> 记住密码（7天有效）</span>
+                                                </label>
+
+                                                <button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="SubmitData">
+                                                    <i class="icon-key"></i>
+                                                    登录
+                                                </button>
+                                            </div>
+                                            <div class="space-4"></div>
+                                        </fieldset>
+                                    </form>
+                                </div><!-- /widget-main -->
+
+                                <div class="toolbar clearfix">
+                                    <div class="toolbar center">
+                                        <a href="#" onclick="show_box('forgot-box'); return false;" class="user-signup-link">
+                                            忘记密码
+                                            <i class="icon-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!-- /widget-body -->
+                        </div><!-- /login-box -->
+                        <div id="forgot-box" class="forgot-box widget-box no-border">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h4 class="header red lighter bigger">
+                                        <i class="icon-key"></i>
+                                        忘记密码
+                                    </h4>
+                                    <div class="space-6"></div>
+                                    <h3>忘记密码请与管理员联系！</h3>
+                                </div><!-- /widget-main -->
+
+                                <div class="toolbar center">
+                                    <a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
+                                        返回登录
+                                        <i class="icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div><!-- /widget-body -->
+                        </div><!-- /forgot-box -->
+                    </div><!-- /position-relative -->
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div>
+</div><!-- /.main-container -->
+<script type="text/javascript">
+    function show_box(id) {
+        jQuery('.widget-box.visible').removeClass('visible');
+        jQuery('#'+id).addClass('visible');
+    }
+</script>
+<!-- 点击刷新验证码 -->
+<script type="text/javascript">
+    function refreshVerify() {
+        var ts = Date.parse(new Date())/1000;
+        $('#verify_img').attr("src", "/captcha?id="+ts);
+        //刷新之后，之前填的验证码清空
+        var code = $('#Ccode');
+        if(code.val() != ''){
+            code.val("");
+        }
+    }
+</script>
+<!--hcdl js加载-->
+<script src="/static/js/jquery-hcdl.js"></script>
+<!--加载尾部-->
+{include file='public/footer' /}

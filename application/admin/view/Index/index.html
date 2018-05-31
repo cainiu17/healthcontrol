@@ -1,0 +1,49 @@
+<!--加载头部-->
+{include file='public/header' /}
+<!--加载nav-->
+{include file='public/nav'}
+<!--加载menu-->
+{include file='public/menu'}
+<!--页面详细信息-->
+<div class="main-content">
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+        </script>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home home-icon"></i>
+                <a href="{:url('admin/index/index')}">首页</a>
+            </li>
+            <li class="active">控制台</li>
+        </ul><!-- .breadcrumb -->
+        <div class="nav-search" id="nav-search">
+            <form class="form-search">
+                <span class="input-icon">
+                    <input type="text" placeholder="搜索" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                    <i class="icon-search nav-search-icon"></i>
+                </span>
+            </form>
+        </div><!-- #nav-搜索 -->
+    </div>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-xs-12">
+                <!--start page-content-->
+                <div class="space-12"></div>
+                <div class="alert alert-block alert-success">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="icon-remove"></i>
+                    </button>
+                    <i class="icon-ok green"></i>
+                    欢迎使用
+                    <strong class="green">
+                        南加健康管理中心
+                    </strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--加载尾部-->
+{include file='public/footer' /}
