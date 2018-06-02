@@ -43,7 +43,7 @@
 
             <ul class="nav nav-list">
                 <li class="active">
-                    <a href="index.html">
+                    <a href="{:url('admin/index/index')}">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 控制台 </span>
                     </a>
@@ -59,13 +59,14 @@
                 <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-desktop"></i>
-                        <span class="menu-text">用户管理</span>
+                        <span class="menu-text">后台管理</span>
                         <b class="arrow icon-angle-down"></b>
-                    </a>                    <ul class="submenu">
+                    </a>
+                    <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="{:url('admin/user/addUser');}">
                                 <i class="icon-double-angle-right"></i>
-                                组件
+                                添加管理人员
                             </a>
                         </li>
 
@@ -345,5 +346,3 @@
                 try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
             </script>
         </div>
-    </div>
-</div>

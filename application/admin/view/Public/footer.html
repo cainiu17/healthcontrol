@@ -1,17 +1,19 @@
+    </div><!-- /.main-container-inner -->
+</div><!-- /.main-container -->
 <script type="text/javascript">
     if("ontouchend" in document) document.write("<script src='/static/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
 </script>
-<script src="/static/assets/js/typeahead-bs2.min.js"></script>
-<!-- page specific plugin scripts -->
-
-<!--[if lte IE 8]>
-<script src="/static/assets/js/excanvas.min.js"></script>
-<![endif]-->
-
-
-<!-- ace scripts -->
-
-<script src="/static/assets/js/ace-elements.min.js"></script>
-<script src="/static/assets/js/ace.min.js"></script>
+<script>
+    $(function () {
+        var pathname = window.location.pathname + window.location.search;
+        $(".nav li a").each(function() {
+            var href = $(this).attr("href");
+            if(pathname ==  href){
+                $(this).parents("ul").parent("li").addClass("active open");
+                $(this).parent("li").addClass("active");
+            }
+        });
+    });
+</script>
 </body>
 </html>

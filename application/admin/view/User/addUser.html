@@ -1,10 +1,10 @@
 <!--加载头部-->
 {include file='public/header' /}
 <!--加载nav-->
-{include file='public/nav' /}
+{include file='public/nav'}
 <!--加载menu-->
-{include file='public/menu' /}
-<!--页面详细信息-->
+{include file='public/menu'}
+
 <div class="main-content">
     <div class="breadcrumbs" id="breadcrumbs">
         <script type="text/javascript">
@@ -15,9 +15,10 @@
                 <i class="icon-home home-icon"></i>
                 <a href="{:url('admin/index/index')}">首页</a>
             </li>
-            <li class="active">控制台</li>
+            <li class="">后台管理</li>
+            <li class="active">添加管理人员</li>
         </ul><!-- .breadcrumb -->
-        <!--<div class="nav-search" id="nav-search">
+       <!-- <div class="nav-search" id="nav-search">
             <form class="form-search">
                 <span class="input-icon">
                     <input type="text" placeholder="搜索" class="nav-search-input" id="nav-search-input" autocomplete="off" />
@@ -26,24 +27,13 @@
             </form>
         </div>--><!-- #nav-搜索 -->
     </div>
-    <div class="page-content">
-        <div class="row">
-            <div class="col-xs-12">
-                <!--start page-content-->
-                <div class="space-12"></div>
-                <div class="alert alert-block alert-success">
-                    <button type="button" class="close" data-dismiss="alert">
-                        <i class="icon-remove"></i>
-                    </button>
-                    <i class="icon-ok green"></i>
-                    欢迎使用
-                    <strong class="green">
-                        南加健康管理中心
-                    </strong>
-                </div>
-            </div>
+    <div class="space-12"></div>
+    <div class="col-sm-8">
+        <div class="widget-box">
+            <div class="widget-header"><h3>添加管理人员</h3></div>
         </div>
     </div>
+
 </div>
 <!--加载尾部-->
 {include file='public/footer' /}

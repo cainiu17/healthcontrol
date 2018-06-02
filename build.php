@@ -28,7 +28,7 @@ return [
         '__dir__'       => ['behavior','controller','model','view','validate'],
         'controller'    => ['Index','User','Company'],
         'model'         => ['Access','User','UserRole','Role','RolePermission','Permission','Company'],
-        'view'          => ['Index/index','Index/login','Public/header','Public/footer','Public/nav','Public/menu'],
+        'view'          => ['Index/index','Index/login','Public/header','Public/footer','Public/nav','Public/menu','User/index','User/addUser'],
         'validate'      => ['Admin'],
     ],
 ];
