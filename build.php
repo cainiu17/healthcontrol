@@ -26,9 +26,9 @@ return [
     'admin' => [
         '__file__'      => ['common.php'],
         '__dir__'       => ['behavior','controller','model','view','validate'],
-        'controller'    => ['Index','User','Company'],
+        'controller'    => ['Index','User','Company','Role','Permission'],
         'model'         => ['Access','User','UserRole','Role','RolePermission','Permission','Company'],
-        'view'          => ['Index/index','Index/login','Public/header','Public/footer','Public/nav','Public/menu','User/index','User/addUser'],
+        'view'          => ['Index/index','Index/login','Public/header','Public/footer','Public/nav','Public/menu','User/index','User/addUser','Role/index','Role/addRole'],
         'validate'      => ['Admin'],
     ],
 ];

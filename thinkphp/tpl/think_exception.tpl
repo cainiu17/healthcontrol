@@ -289,14 +289,12 @@
     <?php if(\think\App::$debug) { ?>
     <div class="exception">
     <div class="message">
-        
-            <div class="info">
-                <div>
-                    <h2>[<?php echo $code; ?>] <?php echo sprintf('%s in %s', parse_class($name), parse_file($file, $line)); ?></h2>
-                </div>
-                <div><h1><?php echo nl2br(htmlentities($message)); ?></h1></div>
+        <div class="info">
+            <div>
+                <h2>[<?php echo $code; ?>] <?php echo sprintf('%s in %s', parse_class($name), parse_file($file, $line)); ?></h2>
             </div>
-        
+            <div><h1><?php echo nl2br(htmlentities($message)); ?></h1></div>
+        </div>
     </div>
 	<?php if(!empty($source)){?>
         <div class="source-code">
@@ -332,10 +330,12 @@
         </div>
     </div>
     <?php } else { ?>
-    <div class="exception">
-        
-            <div class="info"><h1><?php echo htmlentities($message); ?></h1></div>
-        
+    <div class="exception" style="width:50%;margin: 100px auto;">
+        <div class="info" style="text-align: center;">
+            <h1><?php echo htmlentities($message); ?></h1>
+            <br>
+            <a href="javascript:history.back(-1)">返回上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../">返回主页</a>
+        </div>
     </div>
     <?php } ?>
     
@@ -408,12 +408,6 @@
         <?php } ?>
     </div>
     <?php } ?>
-
-    <div class="copyright">
-        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
-        <span>V<?php echo THINK_VERSION; ?></span> 
-        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
-    </div>
     <?php if(\think\App::$debug) { ?>
     <script>
         var LINE = <?php echo $line; ?>;
