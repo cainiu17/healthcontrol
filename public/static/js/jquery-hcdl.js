@@ -12,7 +12,7 @@ $(function () {
             $.ajax({
                 type:'get',
                 data:{'code':ucode.val()},
-                url:'admin/index/checkCode',
+                url:'/admin/index/checkCode',
                 success:function (obj) {
                     if(obj=='0'){
                         ucode.attr({'data-content':'验证码输入不正确，请重新输入！'});
@@ -68,10 +68,10 @@ $(function () {
         $.ajax({
             type:'post',
             data:{'name':uname.val(),'pwd':upwd.val(),'code':ucode.val(),'remember':uremember,condition},
-            url:'admin/index/login',
+            url:'/admin/index/login',
             success:function (obj) {
                 if(obj.code=='1'){
-                    window.location.href = 'admin/index/index';
+                    window.location.href = '/admin/index/index';
                 }else{
 //                        history.go(0);
                     uname.attr({'data-content':obj.msg});

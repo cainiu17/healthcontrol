@@ -37,10 +37,48 @@
                     <form role="form" class="form-horizontal">
                         <div class="space-12"></div>
                         <div class="form-group">
-                            <lable class="col-sm-3 control-label no-padding-right" for="form-field-1">角色名称</lable>
-                            <lable class="col-sm-9">
-                                <input type="text" class="col-xs-10 col-sm-5" placeholder="角色名称">
+                            <lable class="col-sm-5 control-label no-padding-right" for="form-field-1">角色名称：</lable>
+                            <lable class="col-sm-7">
+                                <input type="text" class="col-xs-10 col-sm-5" placeholder="角色名称" name="roleName">
                             </lable>
+                        </div>
+                        <div class="space-4"></div>
+                        <div class="form-group">
+                            <lable class="col-sm-5 control-label no-padding-right" for="form-field-1">角色状态：</lable>
+                            <lable class="col-sm-7">
+                                <input type="radio" name="roleStatus" class="ace" checked value="1"><span class="lbl">正常</span>
+                                <div class="space-4"></div>
+                                <input type="radio" name="roleStatus" class="ace" value="0"><span class="lbl">禁用</span>
+                            </lable>
+                        </div>
+                        <div class="form-group">
+                            <lable class="col-sm-5 control-label no-padding-right" for="form-field-1">角色描述：</lable>
+                            <lable class="col-sm-7">
+                                <input type="text" class="col-xs-10 col-sm-5" placeholder="角色的简单描述" name="roleDescri">
+                            </lable>
+                        </div>
+                        <div class="form-group">
+                            <lable class="col-sm-5 control-label no-padding-right" for="form-field-1">角色排序：</lable>
+                            <lable class="col-sm-7">
+                                <input type="text" class="col-xs-10 col-sm-5" placeholder="1-100之间的整数，可重复" name="roleSort">
+                            </lable>
+                        </div>
+                        <div class="form-group">
+                            <lable class="col-sm-5 control-label no-padding-right" for="form-field-1">该角色的父级角色：</lable>
+                            <lable class="col-sm-7">
+                                <select name="roleParentid" class="col-xs-10 col-sm-5" id="rParentid">
+                                    <option value="0"></option>
+                                    {volist name='parentRole' id="val"}
+                                    <option value="{$val.id}">{$val.name}</option>
+                                    {/volist}
+                                </select>
+                            </lable>
+                        </div>
+                        <div class="form-actions center">
+                            <button type="button" class="btn btn-sm btn-success" id="addRoleSub">
+                                <i class="icon-ok bigger-110"></i>
+                                确认提交
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -48,5 +86,26 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $(document).on('click','#addRoleSub',function () {
+            var rname = $("input[name='roleName']");
+            var rstatus = $("input[name='roleStatus']");
+            var rdescri = $("input[name='roleDescri']");
+            var rsort = $("input[name='roleSort']");
+            var rparentid = $("#rParentid");
+            $.ajax({
+                type: 'post',
+                data: {'name':rname.val(),'status':rstatus.val(),'description':rdescri.val(),'sort':rsort.val(),'parentid':rparentid.val()},
+                url: '/admin/role/addRole',
+                success:function (obj) {
+                    if(obj){
+
+                    }
+                }
+            })
+        })
+    })
+</script>
 <!--加载尾部-->
 {include file='public/footer' /}

@@ -2,8 +2,22 @@
 namespace app\admin\model;
 
 use think\Model;
+use think\Db;
 
 class Role extends Model
 {
+    /**
+     *查询父级角色
+     *
+     */
+    public function getParentRole(){
+        $res = Db::table('hc_role')->where(['parent_id'=>0,'status'=>1])->column('id','name');
+        if($res){
+            return $res;
+        }else{
+            return false;
+        }
+
+    }
 
 }
