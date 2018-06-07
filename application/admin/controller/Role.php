@@ -14,7 +14,8 @@ class Role extends Controller
      *角色管理展示
      */
     public function index(){
-
+        $this->assign('web_title','角色管理');
+        return $this->fetch();
     }
     /**
      *添加角色
@@ -25,8 +26,11 @@ class Role extends Controller
             //查询角色为父级（parent_id 为空）的角色
             $role = new RoleModel();
             $data = $role->getParentRole();
-//            print_r($data);
-            return $this->fetch('addRole',['web_title'=>'添加角色','parentRole'=>$data]);
+            if($data){
+                $this->assign('parentRole',$data);
+            }
+            $this->assign('web_title','添加角色');
+            return $this->fetch();
         }else{
             //添加角色
             $rbac = new rbac\Rbac();

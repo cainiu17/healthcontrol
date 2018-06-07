@@ -11,7 +11,7 @@ class Role extends Model
      *
      */
     public function getParentRole(){
-        $res = Db::table('hc_role')->where(['parent_id'=>0,'status'=>1])->column('id','name');
+        $res = Db::table('hc_role')->where(['parent_id'=>0,'status'=>1])->select();
         if($res){
             return $res;
         }else{

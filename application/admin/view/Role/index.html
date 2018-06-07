@@ -1,0 +1,48 @@
+<!--加载头部-->
+{include file='public/header' /}
+<!--加载nav-->
+{include file='public/nav'}
+<!--加载menu-->
+{include file='public/menu'}
+<div class="main-content">
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+        </script>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home home-icon"></i>
+                <a href="{:url('admin/index/index')}">首页</a>
+            </li>
+            <li class="">后台管理</li>
+            <li class="">系统角色管理</li>
+            <li class="active">角色列表</li>
+        </ul><!-- .breadcrumb -->
+        <!-- <div class="nav-search" id="nav-search">
+             <form class="form-search">
+                 <span class="input-icon">
+                     <input type="text" placeholder="搜索" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                     <i class="icon-search nav-search-icon"></i>
+                 </span>
+             </form>
+         </div>--><!-- #nav-搜索 -->
+    </div>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>角色列表</h1>
+        </div>
+    </div>
+    <div class="space-12"></div>
+    <div class="col-sm-12">
+        <div class="widget-box">
+            <div class="widget-header"><h3>系统角色列表</h3></div>
+            <div class="widget-body">
+                <div class="widget-main">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--加载尾部-->
+{include file='public/footer' /}
