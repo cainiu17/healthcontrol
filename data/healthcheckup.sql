@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-06-05 18:51:34
+Date: 2018-06-08 20:27:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,7 +38,7 @@ CREATE TABLE `hc_admin` (
 -- ----------------------------
 -- Records of hc_admin
 -- ----------------------------
-INSERT INTO `hc_admin` VALUES ('1', 'hcadmin', '25f9e794323b453885f5181f1b624d0b', '789', '1', '15801379183', '汪娜娜', '123@qq.com', '1526559130', '1528180912', '1526559130', '/static/assets/avatars/user.jpg');
+INSERT INTO `hc_admin` VALUES ('1', 'hcadmin', '25f9e794323b453885f5181f1b624d0b', '789', '1', '15801379183', '汪娜娜', '123@qq.com', '1526559130', '1528443290', '1526559130', '/static/assets/avatars/user.jpg');
 
 -- ----------------------------
 -- Table structure for hc_company
@@ -108,13 +108,14 @@ CREATE TABLE `hc_role` (
   `right_key` int(11) NOT NULL DEFAULT '0' COMMENT '用来组织关系的右值',
   `level` int(11) NOT NULL DEFAULT '0' COMMENT '所处层级',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='角色';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='角色';
 
 -- ----------------------------
 -- Records of hc_role
 -- ----------------------------
-INSERT INTO `hc_role` VALUES ('1', '超级管理员', '0', '可以操作系统里的任何操作', '1', '1', '3', '4', '1');
-INSERT INTO `hc_role` VALUES ('2', '体检登记员', '0', '登记体检的基本信息', '1', '2', '1', '2', '1');
+INSERT INTO `hc_role` VALUES ('3', '超级管理员', '0', '可以操作系统任何操作', '1', '1', '5', '6', '1');
+INSERT INTO `hc_role` VALUES ('4', '体检医护', '0', '体检过程中记录体检信息', '1', '2', '1', '4', '1');
+INSERT INTO `hc_role` VALUES ('5', '外科医护', '4', '外科体检 医护', '1', '1', '2', '3', '2');
 
 -- ----------------------------
 -- Table structure for hc_role_permission
