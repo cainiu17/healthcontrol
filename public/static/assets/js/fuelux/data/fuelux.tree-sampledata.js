@@ -25,17 +25,23 @@ DataSourceTree.prototype.data = function(options, callback) {
 	//but you can retrieve your data dynamically from a server using ajax call
 	//checkout examples/treeview.html and examples/treeview.js for more info
 };
-
+$(function () {
+	$.ajax({
+		type: 'get',
+		url: '/admin/role/getAllRole',
+		success: function (obj) {
+			console.log(obj);
+		}
+	});
+})
 var tree_data = {
 	'for-sale' : {name: 'For Sale', type: 'folder'}	,
 	'vehicles' : {name: 'Vehicles', type: 'folder'}	,
 	'rentals' : {name: 'Rentals', type: 'folder'}	,
 	'real-estate' : {name: 'Real Estate', type: 'folder'}	,
-	'pets' : {name: 'Pets', type: 'folder'}	,
-	'tickets' : {name: 'Tickets', type: 'item'}	,
-	'services' : {name: 'Services', type: 'item'}	,
-	'personals' : {name: 'Personals', type: 'item'}
+	'pets' : {name: 'Pets', type: 'folder'}
 }
+
 tree_data['for-sale']['additionalParameters'] = {
 	'children' : {
 		'appliances' : {name: 'Appliances', type: 'item'},
@@ -91,17 +97,6 @@ tree_data['pets']['additionalParameters'] = {
 }
 
 var treeDataSource = new DataSourceTree({data: tree_data});
-
-
-
-
-
-
-
-
-
-
-
 var tree_data_2 = {
 	'pictures' : {name: 'Pictures', type: 'folder', 'icon-class':'red'}	,
 	'music' : {name: 'Music', type: 'folder', 'icon-class':'orange'}	,

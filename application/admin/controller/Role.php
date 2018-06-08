@@ -45,4 +45,13 @@ class Role extends Controller
             return $res;
         }
     }
+    /**
+     *获取所有角色
+     *
+     */
+    public function getAllRole(){
+        $role = new RoleModel();
+        $data = $role->geAllRole();
+        print_r($data);
+    }
 }
