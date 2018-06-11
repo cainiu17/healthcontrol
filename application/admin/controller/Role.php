@@ -15,6 +15,9 @@ class Role extends Controller
      */
     public function index(){
         $this->assign('web_title','角色管理');
+        $role = new RoleModel();
+        $data = $role->geAllRole();
+        $this->assign('data',$data);
         return $this->fetch();
     }
     /**
@@ -25,7 +28,7 @@ class Role extends Controller
         if(!$_POST){
             //查询角色为父级（parent_id 为空）的角色
             $role = new RoleModel();
-            $data = $role->getParentRole();
+            $data = $role->geAllRole();
             if($data){
                 $this->assign('parentRole',$data);
             }
@@ -50,8 +53,6 @@ class Role extends Controller
      *
      */
     public function getAllRole(){
-        $role = new RoleModel();
-        $data = $role->geAllRole();
-        print_r($data);
+
     }
 }

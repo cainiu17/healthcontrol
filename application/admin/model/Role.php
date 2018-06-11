@@ -27,22 +27,22 @@ class Role extends Model
      */
     public function geAllRole(){
         $data = Db::table('hc_role')->select();
-        $tree = $this->getRoleTree($data,0);
+        $tree = $this->getRoleTree($data);
         return $tree;
     }
     /**
      *将所查询的角色通过递归变成无限极树状
      */
-    public function getRoleTree($data,$pid=0){
+    public function getRoleTree($data,$pid=0,$level=0){
         static $list = [];
         foreach ($data as $k=>$v){
             if($v['parent_id'] == $pid){
+                $v['level'] = $level;
                 $list[] = $v;
                 unset($data[$k]);
-                $this->getRoleTree($data,$v['id']);
+                $this->getRoleTree($data,$v['id'],$level+1);
             }
         }
         return $list;
     }
-
 }
